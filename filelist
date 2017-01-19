@@ -1,2 +1,7 @@
+# bash
 .bashrc
 .bash_profile
+
+# vim
+.vim/vimrc
+.vim/gvimrc
