@@ -2,6 +2,9 @@
 .bashrc
 .bash_profile
 
+# tmux
+.tmux.conf
+
 # vim
 .vim/vimrc
 .vim/gvimrc
