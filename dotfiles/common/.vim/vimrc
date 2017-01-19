@@ -12,15 +12,16 @@ Plugin 'vim-airline/vim-airline'
 " Filetype integrations
 Plugin 'ledger/vim-ledger'
 
+" Navigation
+Plugin 'scrooloose/nerdtree'
+
 " Git
 Plugin 'tpope/vim-fugitive'
 Plugin 'airblade/vim-gitgutter'
+Plugin 'Xuyuanp/nerdtree-git-plugin'
 
 " Autocompletion
 Plugin 'valloric/youcompleteme'
-
-" Navigation
-Plugin 'scrooloose/nerdtree'
 
 " Syntax checking
 Plugin 'scrooloose/syntastic'
