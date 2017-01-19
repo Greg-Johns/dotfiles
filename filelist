@@ -5,3 +5,7 @@
 # vim
 .vim/vimrc
 .vim/gvimrc
+
+# git
+.gitconfig
+.gitignore
