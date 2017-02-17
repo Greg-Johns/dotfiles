@@ -1,5 +1,9 @@
-set nocompatible              " be iMproved, required
-filetype off                  " required during Vundle calls
+scriptencoding utf-8
+set encoding=utf-8
+
+" required during Vundle calls
+set nocompatible
+filetype off
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -7,13 +11,29 @@ call vundle#begin()
 
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'vim-airline/vim-airline'
 
-" Filetype integrations
-Plugin 'ledger/vim-ledger'
+" Snippets
+Plugin 'honza/vim-snippets'
+
+" Project-specific indentation/tabs
+Plugin 'editorconfig/editorconfig-vim'
+
+" Fancy bottom bar
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 
 " Navigation
 Plugin 'scrooloose/nerdtree'
+
+" Ledger
+Plugin 'ledger/vim-ledger'
+
+" Kotlin
+Plugin 'udalov/kotlin-vim'
+
+" Rust
+Plugin 'rust-lang/rust.vim'
+Plugin 'racer-rust/vim-racer'
 
 " Git
 Plugin 'tpope/vim-fugitive'
@@ -26,23 +46,46 @@ Plugin 'valloric/youcompleteme'
 " Syntax checking
 Plugin 'scrooloose/syntastic'
 
-" Themes
+" Theme
 Plugin 'altercation/vim-colors-solarized'
 
-" Display Whitespace
+" Hilight extra whitespace
 Plugin 'ntpeters/vim-better-whitespace'
+
+" Show guides for indentation
+" Currently does not work with solarized
+" Plugin 'nathanaelkane/vim-indent-guides'
 
 call vundle#end()
 
-" Required:
+" Turn indent back on
 filetype plugin indent on
 
 syntax enable
 set background=dark
 colorscheme solarized
-
+set number
+set list
+set listchars=tab:»\ ,trail:·,extends:›,nbsp:␣,precedes:‹
+"eol:↲,
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
+
+" vim-airline config
+"
+" Automatically displays all buffers when there's only one tab open.
+let g:airline#extensions#tabline#enabled = 1
+" Make statusline appear all the time
+set laststatus=2
+
+" Indent guide config
+"let g:indent_guides_start_level = 2
+"let g:indent_guides_guide_size = 1
+
+" Make editorconfig and fugitive play nice
+let g:EditorConfig_exclude_patterns = ['fugitive://.*']
+
+"" NerdTREE Configuration
 
 let NERDTreeShowHidden=1
 
@@ -54,6 +97,15 @@ autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in
 
 " Open NERDTree automatically when vim starts up if no files were specified
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+
+" vim-racer
+"
+" It's worth turning on 'hidden' mode for buffers otherwise you need to save
+" the current buffer every time you do a goto-definition.
+set hidden
+let g:racer_cmd = "/path/to/racer/bin"
+" Optional, show complete function definitions in completer
+" let g:racer_experimental_completer = 1
 
 " Autocompletion on
 set omnifunc=syntaxcomplete#Complete
@@ -79,7 +131,7 @@ if has('mouse')
 endif
 
 " Make selections go into the system clipboard
-set clipboard=unnamedplus
+"set clipboard=unnamedplus
 
 " Convenient command to see the difference between the current buffer and the
 " file it was loaded from, thus the changes you made.
@@ -90,7 +142,7 @@ if !exists(":DiffOrig")
 endif
 
 " Global tab settings
-set tabstop=4
-set shiftwidth=4
-set expandtab
-set smarttab
+"set tabstop=4
+"set shiftwidth=4
+"set expandtab
+"set smarttab
