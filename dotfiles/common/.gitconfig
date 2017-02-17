@@ -1,9 +1,18 @@
-[push]
-	default = simple
 [user]
 	email = zach@ploskey.com
 	name = Zach Ploskey
-[credential]
-	helper = cache --timeout=7200
 [core]
 	editor = vim
+	abbrev = 12
+[credential]
+	helper = cache --timeout=7200
+[pretty]
+	fixes = Fixes: %h (\"%s\")
+[push]
+	default = simple
+[sendemail]
+	annotate = true
+	smtpserver = mail.ploskey.com
+	smtpserverport = 587
+	smtpencryption = tls
+	smtpuser = zach
