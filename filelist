@@ -1,14 +1,13 @@
 # bash
 .bashrc
-.bash_profile
-
-# tmux
-.tmux.conf
-
-# vim
-.vim/vimrc
-.vim/gvimrc
+.profile
 
 # git
 .gitconfig
 .gitignore
+
+# neovim
+.config/nvim/init.vim
+
+# tmux
+.tmux.conf

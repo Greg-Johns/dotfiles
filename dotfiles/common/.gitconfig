@@ -16,3 +16,5 @@
 	smtpserverport = 587
 	smtpencryption = tls
 	smtpuser = zach
+[diff]
+	submodule = log
