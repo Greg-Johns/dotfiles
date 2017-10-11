@@ -1,6 +1,6 @@
 # dotfiles
 
-Dotfiles maintained with [dotgit](https://github.com/Cube777/dotgit).
+Dotfiles maintained with [dotgit](https://github.com/kobus-v-schoor/dotgit).
 
 Contains my current configurations for:
 - bash
