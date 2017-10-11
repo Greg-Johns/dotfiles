@@ -2,7 +2,7 @@
 	email = zach@ploskey.com
 	name = Zach Ploskey
 [core]
-	editor = vim
+	editor = nvim
 	abbrev = 12
 [credential]
 	helper = cache --timeout=7200
