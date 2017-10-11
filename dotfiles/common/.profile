@@ -18,7 +18,11 @@ fi
 
 # set PATH so it includes user's private bin if it exists
 if [ -d "$HOME/bin" ] ; then
-    PATH="$HOME/bin:$PATH"
+    PATH="$HOME/.local/bin:$HOME/bin:$PATH"
 fi
 
-PATH=$PATH:~/.composer/vendor/bin
+export EDITOR=/usr/bin/nvim
+export PATH=$PATH:~/.composer/vendor/bin
+
+# OPAM configuration
+. /home/zach/.opam/opam-init/init.sh > /dev/null 2> /dev/null || true
