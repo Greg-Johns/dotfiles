@@ -9,7 +9,25 @@ let NERDTreeShowHidden=1
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
 
+Plug 'arrufat/vala.vim', {'for': 'vala'}
+Plug 'udalov/kotlin-vim'
+Plug 'rust-lang/rust.vim'
+Plug 'reasonml-editor/vim-reason'
+
+Plug 'prabirshrestha/async.vim'
+Plug 'prabirshrestha/vim-lsp'
+
 Plug 'editorconfig/editorconfig-vim'
+
+Plug 'autozimu/LanguageClient-neovim', {'do': ':UpdateRemotePlugins'}
+let g:languageclient_servercommands = {
+  \ 'python': ['pyls'],
+  \ 'reason': ['ocaml-language-server', '--stdio'],
+  \ }
+let g:LanguageClient_autoStart = 1
+nnoremap <silent> K :call LanguageClient_textDocument_hover()<CR>
+nnoremap <silent> gd :call LanguageClient_textDocument_definition()<CR>
+nnoremap <silent> <F2> :call LanguageClient_textDocument_rename()<CR>
 
 Plug 'Shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins'}
 let g:deoplete#enable_at_startup = 1
@@ -20,21 +38,12 @@ let g:echodoc#enable_at_startup = 1
 Plug 'Shougo/denite.nvim'
 Plug 'ervandew/supertab'
 
-Plug 'autozimu/LanguageClient-neovim', {'do': ':UpdateRemotePlugins'}
-let g:LanguageClient_serverCommands = {
-  \ 'python': ['pyls'],
-  \ }
-let g:LanguageClient_autoStart = 1
-nnoremap <silent> K :call LanguageClient_textDocument_hover()<CR>
-nnoremap <silent> gd :call LanguageClient_textDocument_definition()<CR>
-nnoremap <silent> <F2> :call LanguageClient_textDocument_rename()<CR>
-
 Plug 'roxma/LanguageServer-php-neovim',  {'do': 'composer install && composer run-script parse-stubs'}
-Plug 'arrufat/vala.vim', {'for': 'vala'}
-Plug 'udalov/kotlin-vim'
-Plug 'rust-lang/rust.vim'
 
 Plug 'altercation/vim-colors-solarized'
+
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
 call plug#end()
 
@@ -44,8 +53,7 @@ filetype plugin indent on
 set background=dark
 colorscheme solarized
 
-set cmdheight=2
-" alternately, set noshowmode
+set noshowmode
 set mouse=a
 set hidden
 set incsearch
@@ -61,6 +69,10 @@ set tabstop=4
 set expandtab
 set smarttab
 
-autocmd FileType javascript setlocal sw=2 ts=2 expandtab
-autocmd FileType yaml setlocal sw=2 ts=2 expandtab
-autocmd FileType html setlocal sw=2 ts=2 expandtab
+autocmd FileType javascript setlocal sw=2 ts=2
+autocmd FileType html setlocal sw=2 ts=2
+autocmd FileType reason setlocal sw=2 ts=2
+autocmd FileType ocaml setlocal sw=2 ts=2
+
+autocmd FileType yaml setlocal sw=2 ts=2
+autocmd FileType json setlocal sw=2 ts=2
