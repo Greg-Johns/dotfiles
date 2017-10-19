@@ -20,9 +20,3 @@ fi
 if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/.local/bin:$HOME/bin:$PATH"
 fi
-
-export EDITOR=/usr/bin/nvim
-export PATH=$PATH:~/.composer/vendor/bin
-
-# OPAM configuration
-. /home/zach/.opam/opam-init/init.sh > /dev/null 2> /dev/null || true
