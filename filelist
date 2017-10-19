@@ -9,5 +9,8 @@
 # neovim
 .config/nvim/init.vim
 
+# pip
+.config/pip/pip.conf
+
 # tmux
 .tmux.conf
